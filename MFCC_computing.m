@@ -1,6 +1,6 @@
-function [ MFCC_coefs ] = MFCC_computing(speech, fs, timeCode)
+function [ MFCC_coefs ] = MFCC_computing(speech, fs)
 
-disp(' '); disp('MFCCs processing ...');
+fprintf('\nMFCCs processing ...');
 
 addpath(genpath('mfcc'));
 
@@ -30,10 +30,13 @@ MFCC_coefs = MFCC_delta(MFCC_coefs,C);
 %Plot results
 MFCC_plot(MFCC_coefs,C);
 
-fprintf('...end !\n\n');
+fprintf(' end !\n\n');
 rmpath('mfcc');
 
 end
+
+
+
 
 function [ ] = MFCC_plot(MFCC_coefs,C)
 
@@ -61,6 +64,9 @@ subplot(2,1,2)
     title('Mel frequency cepstrum delta');
 
 end
+
+
+
 
 function [MFCC_coefs] = MFCC_delta(MFCC_coefs,C)
 
